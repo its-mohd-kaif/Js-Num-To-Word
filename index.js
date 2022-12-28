@@ -36,9 +36,14 @@ function numToWord() {
     "eighty",
     "ninety",
   ];
+  // Make Str Variable
+  var str = "";
   // Check if number length is greater then 9 so display "Number Limit Reached"
-  if ((num = num.toString()).length > 9)
-    return setResult("Number Limit Reached");
+  if ((num = num.toString()).length > 9) {
+    str = "Number Limit Reached";
+    return (document.getElementById("res").innerHTML = str);
+  }
+
   // Make Variable "n" and concate with 9 digits like...
   // Ex. If user Press 23 in inbox so "n" store "00 00 00 0 23"
   let n = ("000000000" + num)
@@ -46,8 +51,7 @@ function numToWord() {
     .match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
 
   if (!n) return;
-  // Make Str Variable
-  var str = "";
+
   // Check if number lies in n[1] so add number words along with "crore" and store in "str" variable
   str +=
     n[1] != 0
@@ -78,5 +82,5 @@ function numToWord() {
   //   Display the result
   document.getElementById("res").innerHTML = str;
   //   Clear input field after dislay
-  document.getElementById("digit").value = "";
+  // document.getElementById("digit").value = "";
 }
